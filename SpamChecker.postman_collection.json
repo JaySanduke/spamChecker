@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "d8732131-a7a8-4c00-a644-6314900c7371",
+		"name": "SpamChecker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26096267"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Alice\",\n  \"phone\": \"9876543210\",\n  \"email\": \"alice@example.com\",\n  \"password\": \"pass123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"phone\": \"9876543210\",\n  \"password\": \"pass123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mark Spam",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"phone_number\": \"9999999999\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/spam/mark",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"spam",
+						"mark"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search by Name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/user/search?name=Ali",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Ali"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search by Phone",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/user/search?phone=9876543210",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"search"
+					],
+					"query": [
+						{
+							"key": "phone",
+							"value": "9876543210"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/user/profile/9876543210",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"profile",
+						"9876543210"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJcdTAwMDEiLCJleHAiOjE3NDcwODc2Mjd9.HznhUgbz-UFK3JoXe40PVcBRv23Dq_JoS2i0ICkqiHY",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
